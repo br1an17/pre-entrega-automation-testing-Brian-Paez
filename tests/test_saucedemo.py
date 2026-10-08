@@ -50,3 +50,27 @@ def test_04_validad_interfaz( driver ):
     assert carrito.is_displayed(), f"ERROR: carrito no esta visible"
 
 
+def test_05_añadir_producto_al_carrito( driver ):
+    first_item = driver.find_elements(By.CLASS_NAME, "inventory_item")[0]
+
+    boton_agregar = first_item.find_element(By.TAG_NAME,"button")
+    boton_agregar.click()
+
+    assert boton_agregar.text == "Remove" , 'ERROR: el boton no cambio a "Remove"'
+
+
+def test_06_verificar_contador_carrito( driver ):
+    contador_carrito = driver.find_element(By.CLASS_NAME,"shopping_cart_badge").text
+
+    assert contador_carrito == "1" ,f"ERROR: Se esperaba 1 , obtuvo {contador_carrito}"
+
+
+# def test_07_navegar_carrito(driver):
+    
+#     driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+#     assert "/cart.html" in driver.current_url , "ERROR: No se redirigió a /cart.html"
+
+# def test_08_comprobar_poducto_en_el_carrito( driver):
+#     producto_nombre_en_carrito = driver.find_element(By.CLASS_NAME, "inventory_item_name").text
+
+#     assert producto_nombre_en_carrito == "Sauce Labs Backpack" , f"ERROR: NO ES EL MISMO NOMBRE"
