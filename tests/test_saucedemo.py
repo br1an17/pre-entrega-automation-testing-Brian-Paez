@@ -65,12 +65,12 @@ def test_06_verificar_contador_carrito( driver ):
     assert contador_carrito == "1" ,f"ERROR: Se esperaba 1 , obtuvo {contador_carrito}"
 
 
-# def test_07_navegar_carrito(driver):
+def test_07_navegar_carrito(driver):
     
-#     driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
-#     assert "/cart.html" in driver.current_url , "ERROR: No se redirigió a /cart.html"
+    driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+    assert "/cart.html" in driver.current_url , "ERROR: No se redirigió a /cart.html"
 
-# def test_08_comprobar_poducto_en_el_carrito( driver):
-#     producto_nombre_en_carrito = driver.find_element(By.CLASS_NAME, "inventory_item_name").text
+def test_08_comprobar_poducto_en_el_carrito( driver):
+    producto_nombre_en_carrito = driver.find_element(By.CLASS_NAME, "inventory_item_name").text
 
-#     assert producto_nombre_en_carrito == "Sauce Labs Backpack" , f"ERROR: NO ES EL MISMO NOMBRE"
+    assert producto_nombre_en_carrito == "Sauce Labs Backpack" , f"ERROR: NO ES EL MISMO NOMBRE"
